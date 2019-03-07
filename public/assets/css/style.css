@@ -1,0 +1,21 @@
+.nav-wrapper {
+    margin-bottom: 40px;
+}
+
+.avatar > .circle {
+    line-height: 50px;
+    text-align: center;
+    height: 50px !important;
+    width: 50px !important;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+.modal-content h4{
+    padding-bottom: 20px;
+}
+
+.logout {
+    display: none;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/vendor/materialize-v1.0.0/materialize/css/materialize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" /> 
+    <title><%= title %></title>
+</head>
+<body>
+    
+    <div class="main">
+
+        <header>
+            <nav class="nav-wrapper">
+                <div class="container">
+                    <a href="home" class="brand-logo"><%= title %></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="home">Home</a></li>
+                        <li id="logout" class="logout"><a href="">logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section class="container">
+            <form method="post" action="" class="row" id="addMessage">
+                <div class="input-field col s12 m2 l2">
+                    <input id="pseudo" type="text" class="validate" />
+                    <label for="pseudo">Pseudo</label>
+                </div>
+                <input id="pseudoValue" name="pseudo" type="hidden">
+                <div class="input-field col s12 m10 l8">
+                    <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <div>
+                    <div class="input-field col s12 l2">
+                        <button class="btn">Envoyez</button>
+                    </div>
+                </div>
+            </form>
+
+            <div>
+                    <ul class="collection" id="todolist">
+                        <% todolist.forEach(function(todo, index) { %>
+                        <li class="collection-item avatar">
+                            <span class="circle red lighten-2" title="<%= todo.pseudo %>"><%= todo.letter %></span>
+                            <span class="title"><%= todo.message %></span>
+                            <a href="/" class="deleteTodo secondary-content"><i class="material-icons">delete</i></a>
+                        </li>
+                        <% }); %>
+                    </ul>
+            </div>
+        </section>
+
+        <footer>
+
+        </footer>
+    </div>
+
+    <div id="login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4>
+            <form method="post"  action="/home" class="row" id="addPseudo">
+                <div class="input-field col s12 m8">
+                    <input id="pseudoSend" name="pseudoSend" type="text" />
+                    <label for="pseudoSend">Pseudo</label>
+                </div>
+                <div class="input-field col s12 m2">
+                    <button class="btn" type="submit">enregistre</button>
+                </div>
+            </form>
+            <p>Entres ton pseudo pour ajouter une tâche.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">close</a>
+        </div>
+        </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/assets/js/animation.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="/vendor/materialize-v1.0.0/materialize/js/materialize.js"></script>
+</body>
+</html>
